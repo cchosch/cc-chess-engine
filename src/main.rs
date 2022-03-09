@@ -1,3 +1,5 @@
+use std::cmp::Ordering;
+
 enum BoardState{
     king,
     queen,
@@ -19,6 +21,24 @@ impl BoardState{
     }
 }
 
+impl std::cmp::PartialOrd for BoardState{
+   fn partial_cmp(&self, other: &Self) -> Option<Ordering>{
+       return None
+   }
+    fn lt(&self, other : &Self) -> bool{
+        return self.get_val() < other.get_val();
+    }
+    fn gt(&self, other : &Self) -> bool{
+        return self.get_val() > other.get_val();
+    }
+    fn le(&self, other : &Self) -> bool{
+        return self.get_val() <= other.get_val();
+    }
+    fn ge(&self, other : &Self) -> bool{
+        return self.get_val() >= other.get_val();
+    }
+}
+
 impl std::cmp::PartialEq for BoardState{
     fn eq(&self, other: &Self) -> bool{
         return self.get_val() == other.get_val()
@@ -27,8 +47,5 @@ impl std::cmp::PartialEq for BoardState{
 
 fn main() {
     let mut board : [BoardState; 64];
-    if BoardState::queen == BoardState::queen{
-        println!("yo");
-    }
     println!("Hello, world!");
 }
