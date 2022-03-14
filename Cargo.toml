@@ -1,5 +1,5 @@
 [package]
-name = "cc-chess-engine"
+name = "cc_chess_engine"
 version = "0.1.0"
 authors = ["cchosch <colinhoscheit@gmail.com>"]
 edition = "2018"
